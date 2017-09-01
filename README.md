@@ -14,10 +14,11 @@ Using Vue/Vuex and Laravel 5.5 this boilerplate comes with the following:
 3. `$ yarn` or `$ npm install`
 4. `$ cp .env.example .env`
 5. Add database details to `.env`
-6. `$ php artisan key:generate`
-7. `$ php artisan jwt:secret`
-8. `yarn watch` or `npm run watch`
-9. Visit in browser, enjoy
+6. `$ php artisan migrate`
+7. `$ php artisan key:generate`
+8. `$ php artisan jwt:secret`
+9. `yarn watch` or `npm run watch`
+10. Visit in browser, enjoy
 
 ## Upcoming Features
 The following are planned features, no ETA.
