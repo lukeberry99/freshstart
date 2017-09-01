@@ -15,7 +15,7 @@ Using Vue/Vuex and Laravel 5.5 this boilerplate comes with the following:
 4. `$ cp .env.example .env`
 5. Add database details to `.env`
 6. `$ php artisan key:generate`
-7. `$ php artisan jwt:generate`
+7. `$ php artisan jwt:secret`
 8. `yarn watch` or `npm run watch`
 9. Visit in browser, enjoy
 
