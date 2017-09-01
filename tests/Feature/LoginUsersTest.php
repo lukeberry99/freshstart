@@ -69,15 +69,17 @@ class LoginUsersTest extends TestCase
             'password' => 'secret'
         ]);
 
+        $loginResponse->assertStatus(200);
+
         $token = $loginResponse->json()['meta']['token'];
 
         $this->flushSession();
 
         $this->json('POST', '/api/logout', [], ['Authorization' => 'Bearer '. $token]);
 
-        $response = $this->json('GET', '/api/profile', [], ['Authorization' => 'Bearer '. $token]);
+        $unauthedResponse = $this->json('GET', '/api/profile', [], ['Authorization' => 'Bearer '. $token]);
 
-        $response->assertStatus(401);
+        $unauthedResponse->assertStatus(401);
     }
 
     /** @test */
