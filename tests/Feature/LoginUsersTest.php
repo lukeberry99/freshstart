@@ -59,7 +59,25 @@ class LoginUsersTest extends TestCase
     /** @test */
     function a_user_can_log_out()
     {
-        $this->markTestIncomplete();
+        factory(User::class)->create([
+            'email' => 'foo@bar.com',
+            'password' => bcrypt('secret')
+        ]);
+
+        $loginResponse = $this->json('POST', '/api/login', [
+            'email' => 'foo@bar.com',
+            'password' => 'secret'
+        ]);
+
+        $token = $loginResponse->json()['meta']['token'];
+
+        $this->flushSession();
+
+        $this->json('POST', '/api/logout', [], ['Authorization' => 'Bearer '. $token]);
+
+        $response = $this->json('GET', '/api/profile', [], ['Authorization' => 'Bearer '. $token]);
+
+        $response->assertStatus(401);
     }
 
     /** @test */
