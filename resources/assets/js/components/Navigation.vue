@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <router-link :to="{ name: 'home' }" class="navbar-brand">Freshstart</router-link>
+                <router-link :to="{ name: 'home' }" class="navbar-brand">{{ this.config.app_name }}</router-link>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -45,6 +45,11 @@
     import { mapGetters, mapActions } from 'vuex'
 
     export default {
+        data () {
+            return {
+                config: window.config
+            }
+        },
         computed: mapGetters({
             user: 'auth/user'
         }),

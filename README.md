@@ -23,6 +23,9 @@ Using Vue/Vuex and Laravel 5.5 this boilerplate comes with the following:
 ## Upcoming Features
 The following are planned features, no ETA.
 
+
+**Dusk Tests**
+
 **Roles and permissions**
 - Admin role
 
